@@ -40,7 +40,7 @@ public class ComposeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String tweetContent = etCompose.getText().toString();
-                if (tweetContent.isEmpty()) {
+                if (!tweetContent.isEmpty()) {
                     Toast.makeText(ComposeActivity.this, "Tweet is empty", Toast.LENGTH_LONG).show();
                     return;
                 }
@@ -59,8 +59,8 @@ public class ComposeActivity extends AppCompatActivity {
                         Tweet tweet = new Tweet(json.jsonObject);
                         Log.i(TAG, "Tweet says: " + tweet.body);
                         Intent intent = new Intent();
-                        intent.putExtra("Tweet", Parcels.wrap(tweet));
-                        setResult(RESULT_OK, intent);
+                        intent.putExtra("tweet", Parcels.wrap(tweet));
+                        setResult(RESULT_CANCELED, intent);
                         finish();
                     }
 
@@ -68,6 +68,7 @@ public class ComposeActivity extends AppCompatActivity {
                     public void onFailure(int statusCode, Headers headers, String response, Throwable throwable) {
                         Log.e(TAG, "Failed to publish tweet", throwable);
                         Log.e(TAG, statusCode + "");
+                        Log.e(TAG, response);
                     }
                 });
 
