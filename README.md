@@ -67,9 +67,10 @@ Don't be afraid to review projects you have made if you are struggling.
 
 
 # Hints
-* Where do we handle signing in?
+* Are our Tweet contents empty?
 * Have you checked log cat?
-* Maybe there's something wrong with our tweet.xml file
-* is our api call with swipe refresh failing or, are we forgetting to notify it of something?
-* Are we handling our end points correctly?
+* Is our parameters in our Twitter client set properly?
+* When composing a new tweet, are we sure that we added it to the correct spot in our Tweets list?
+* What RESULT code are we setting?
+* What's the key value we're passing when creating the intents.
 
